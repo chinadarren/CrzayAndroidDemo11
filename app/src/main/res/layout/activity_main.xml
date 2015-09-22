@@ -1,0 +1,88 @@
+<!--图片浏览器-->
+<!--android:scaleTye="fitCenter"表明ImageView显示图片时会
+进行保持纵横比例的缩放，并将缩放后的图片放在该ImageView的中央-->
+<!--通过对按钮设置动态修改图片的Alpha值，来实现对图片透明度的调节-->
+<!--通过为第一个ImageView添加OnTounchListener监听器，用户在第一个ImageView上
+发生触摸事件时，程序从原始图片中读取相应部分的图片，并将其显示在第二个ImageView中。-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+<LinearLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    >
+    <Button
+        android:id="@+id/button_1"
+        android:text="按钮1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+     <Button
+        android:id="@+id/button_2"
+        android:text="按钮2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+     <Button
+        android:id="@+id/button_3"
+        android:text="按钮3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>
+<!--定义显示图片整体的ImageView-->
+    <ImageView android:id="@+id/image1"
+               android:layout_width="match_parent"
+               android:layout_height="240px"
+               android:src="@drawable/ic_launcher"
+               android:scaleType="fitCenter"/>
+    <!--异地显示图片局部细节的ImageView-->
+    <ImageView
+        android:layout_marginTop="10dp"
+        android:background="#00f"
+        android:id="@+id/image2"
+        android:layout_width="120dp"
+        android:layout_height="120dp"/>
+    <!--强大的图片按钮-->
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+<!--普通图片按钮-->
+<ImageButton
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:src="@drawable/blue"
+    />
+        <!--按下时显示不同图片的啊那按钮-->
+  <LinearLayout
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:orientation="horizontal"
+      android:layout_margin="10sp"
+      android:layout_gravity="center_horizontal"
+      >
+      <!--分别定义2个ZoomButton，并分别似乎用btn_minus 和 btn_plus图片-->
+  <ZoomButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:id="@+id/btn_zoom_down"
+      android:src="@android:drawable/btn_minus"
+      />
+      <ZoomButton
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:id="@+id/btn_zoom_up"
+          android:src="@android:drawable/btn_plus"
+          />
+  </LinearLayout>
+        <!--定义ZoomControls组件-->
+        <ZoomControls
+            android:id="@+id/zoomControls1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            ></ZoomControls>
+    </LinearLayout>
+</LinearLayout>
